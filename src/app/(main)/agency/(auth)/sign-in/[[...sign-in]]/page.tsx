@@ -1,11 +1,12 @@
+"use client";
+
 import React from "react";
 import { SignIn } from "@clerk/clerk-react";
 
 const Page = () => {
-    return 
-        
-            <SignIn />
-
-}
+  return (
+    <SignIn />
+  );
+};
 
 export default Page;

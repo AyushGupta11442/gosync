@@ -1,10 +1,12 @@
-import react from 'react';
-import { SignUp } from '@clerk/clerk-react';
+"use client";
 
-const page = () => {
-    return (
-        <SignUp />
-    );
-}
+import React from "react";
+import { SignUp } from "@clerk/clerk-react";
 
-export default page;
+const Page = () => {
+  return (
+    <SignUp />
+  );
+};
+
+export default Page;
