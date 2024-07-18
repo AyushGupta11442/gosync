@@ -1,18 +1,14 @@
 import type { Metadata } from 'next'
-import { DM_Sans, Inter } from 'next/font/google'
+import { DM_Sans } from 'next/font/google'
 import './globals.css'
 import { ClerkProvider } from '@clerk/nextjs'
 import { dark } from '@clerk/themes'
-import Navigation from '@/components/site/navigation'
 import { ThemeProvider } from '@/providers/theme-provider'
-// import { ThemeProvider } from '@/providers/theme-provider'
 // import ModalProvider from '@/providers/modal-provider'
-// import { Toaster } from '@/components/ui/toaster'
-// import { Toaster as SonnarToaster } from '@/components/ui/sonner'
+import { Toaster } from '@/components/ui/toaster'
+import { Toaster as SonnarToaster } from '@/components/ui/sonner'
 
 const font = DM_Sans({ subsets: ['latin'] })
-const inter  =Inter({subsets: ['latin']})
-
 
 export const metadata: Metadata = {
   title: 'GoSync',
@@ -25,24 +21,24 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider
-    appearance={{baseTheme : dark}}>
-
-      <html lang="en" suppressHydrationWarning>
-       
-            <body className= {inter.className}>
-               <ThemeProvider 
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange>
-            <Navigation />
+    <html
+      lang="en"
+      suppressHydrationWarning
+    >
+      <body className={font.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {/* <ModalProvider> */}
             {children}
-           
+            {/* <Toaster />
+            <SonnarToaster position="bottom-left" />
+          </ModalProvider> */}
         </ThemeProvider>
-        </body>
-        
-      </html>
-    </ClerkProvider>
+      </body>
+    </html>
   )
 }
